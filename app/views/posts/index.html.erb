@@ -11,3 +11,15 @@
   <%= link_to "Se connecter", new_user_session_path %>
 <% end%>
 </p>
+
+<% if user_signed_in?%>
+  <% @post.each do |post| %><br>
+    <%= post.body %>
+    <%= post.user.email %>
+   
+  <% end %>
+  <% else%>
+    <% @post.each do |post| %><br>
+      <%= post.body %>
+    <% end %>
+<% end %>
