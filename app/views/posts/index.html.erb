@@ -1,25 +1,24 @@
-<h1>Bienvenue</h1>
+<%= render "navbar" %>
 
-<p>
-  <%= link_to "Créer un nouveau post", new_post_path %>
-</p>
-
-<p>
-<% if user_signed_in?%>
-  <%= link_to "Se déconnecter", destroy_user_session_path %>
-<% else%>
-  <%= link_to "Se connecter", new_user_session_path %>
-<% end%>
-</p>
-
+<div class="container">
 <% if user_signed_in?%>
   <% @post.each do |post| %><br>
-    <%= post.body %>
-    <%= post.user.email %>
-   
+    <article class="message is-warning">
+      <div class="message-header">
+        <%= post.user.email %>
+      </div>
+      <div class="message-body">
+        <%= post.body %>
+      </div>
+    </article>
   <% end %>
-  <% else%>
-    <% @post.each do |post| %><br>
-      <%= post.body %>
-    <% end %>
+<% else%>
+  <% @post.each do |post| %><br>
+    <article class="message is-warning">
+      <div class="message-body">
+        <%= post.body %>
+      </div>
+    </article>
+  <% end %>
 <% end %>
+</div>

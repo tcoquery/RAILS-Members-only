@@ -1,20 +1,25 @@
-    <% if @post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+<%= render "navbar" %>
 
-      <ul>
-      <% @post.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-
+<div class="container">
   <%= form_with model: @post do |form| %>
-    <%= form.label :body, "My message:" %>
+    <%= form.label :body, "Write a new message:" %>
     <br>
-    <%= form.text_area :body %>
+    <%= form.text_area :body, class: "textarea is-small" %>
     <br>
-    <%= form.submit "Submit" %>
+    <%= form.submit class: "button is-responsive is-link"%>
   <% end %>
+  <br>
+</div>
+
+<% if @post.errors.any? %>
+  <div class="container">
+    <h2>Errors prohibited this post from being saved:</h2>
+    <% @post.errors.full_messages.each do |msg| %>
+      <div class="content">
+      <ol type="1">
+        <li><%= msg %></li>
+      </ol>
+      </div>
+    <% end %>
+  </div>
+<% end %>
