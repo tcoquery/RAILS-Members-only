@@ -6,6 +6,8 @@ User registration and log in is handled by the gem Devise.
 
 Styling was done via the framework Bulma.
 
+You can try it here : https://polar-escarpment-17509.herokuapp.com/
+
 Screenshots :
 
 ![Main page logged out](https://i.imgur.com/9aDQUex.png)
